@@ -3,6 +3,7 @@ package com.example.pokemonsample.presentation.pokemonlist
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.pokemonsample.domain.interactor.GetPokemonListInteractor
+import com.example.pokemonsample.domain.interactor.SearchPokemonInteractor
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.FlowPreview
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -20,7 +21,7 @@ import javax.inject.Inject
 @HiltViewModel
 class PokemonListPresenter @Inject constructor(
     private val getPokemonListInteractor: GetPokemonListInteractor,
-    //private val searchPokemonInteractor: SearchPokemonInteractor,
+    private val searchPokemonInteractor: SearchPokemonInteractor,
     val router: PokemonListRouter
 ) : ViewModel() {
     private val _viewState = MutableStateFlow<PokemonListViewState>(PokemonListViewState.Initial)
@@ -29,6 +30,62 @@ class PokemonListPresenter @Inject constructor(
     private val limit = 20 //ページサイズ
 
     init {
+        // 初期データ読み込み
+        loadPokemonList()
+
+        // 検索クエリの変更を監視（デバウンス付き）
+        setupSearchObserver()
+    }
+
+    /**
+     * ポケモン一覧を読み込み
+     */
+    fun loadPokemonList() {
+
+
+    }
+
+    /**
+     * 検索クエリが変更された際の処理
+     */
+    fun onSearchQueryChanged(query: String) {
+        _searchQuery.value = query
+    }
+
+    /**
+     * 検索実行
+     */
+    private fun performSearch(query: String) {
+
+    }
+
+    /**
+     * 検索クエリの監視をセットアップ
+     * 300ms のデバウンスを適用
+     */
+    @OptIn(FlowPreview::class)
+    private fun setupSearchObserver() {
+
+    }
+
+    /**
+     * ポケモンカードがクリックされた際の処理
+     */
+    fun onPokemonClicked(pokemonId: Int) {
+
+    }
+
+    /**
+     * リフレッシュ
+     */
+    fun onRefresh() {
+        loadPokemonList()
+    }
+
+    /**
+     * 次のページを読み込み（無限スクロール用）
+     */
+    fun loadMorePokemon() {
 
     }
 }

@@ -1,8 +1,9 @@
 package com.example.pokemonsample.data.repository
 
+import com.example.pokemonsample.data.remote.api.PokeApiService
 import com.example.pokemonsample.domain.entity.Pokemon
+import com.example.pokemonsample.domain.entity.Result
 import com.example.pokemonsample.domain.repository.PokemonRepository
-import org.jetbrains.annotations.ApiStatus
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -15,6 +16,11 @@ class PokemonRepositoryImpl @Inject constructor(
 ) : PokemonRepository {
     override suspend fun getPokemonList(limit: Int, offset: Int): Result<List<Pokemon>> {
         // とりあえず空リストを返す
-        return Result.success(emptyList())
+        return Result.Success(emptyList())
+    }
+
+    override suspend fun searchPokemon(query: String): Result<List<Pokemon>> {
+        // とりあえず空リストを返す
+        return Result.Success(emptyList())
     }
 }

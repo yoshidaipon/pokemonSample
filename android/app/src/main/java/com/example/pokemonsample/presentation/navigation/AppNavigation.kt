@@ -2,8 +2,12 @@ package com.example.pokemonsample.presentation.navigation
 
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.hilt.navigation.compose.hiltViewModel
+import com.example.pokemonsample.presentation.pokemonlist.PokemonListPresenter
+import com.example.pokemonsample.presentation.pokemonlist.PokemonListScreen
 
 /**
  * アプリ全体のナビゲーション設定

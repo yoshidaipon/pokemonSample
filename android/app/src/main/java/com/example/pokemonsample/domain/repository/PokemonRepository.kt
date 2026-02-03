@@ -1,6 +1,7 @@
 package com.example.pokemonsample.domain.repository
 
 import com.example.pokemonsample.domain.entity.Pokemon
+import com.example.pokemonsample.domain.entity.Result
 
 /**
  * ポケモンデータのRepository インターフェース
