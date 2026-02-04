@@ -72,6 +72,9 @@ dependencies {
     implementation(libs.square.moshi.converter)
     implementation(libs.square.okhttp3.okhttp)
     implementation(libs.square.okhttp3.logging.interceptor)
+    // Added Gson and Retrofit Gson converter
+    implementation(libs.gson)
+    implementation(libs.square.gson.converter)
 
     // Coil for image loading
     implementation(libs.coil.compose)

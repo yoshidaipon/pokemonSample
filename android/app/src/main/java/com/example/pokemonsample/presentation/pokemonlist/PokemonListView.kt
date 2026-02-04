@@ -77,7 +77,31 @@ fun PokemonListScreen(presenter: PokemonListPresenter = hiltViewModel()) {
                 },
                 modifier = Modifier.fillMaxWidth().padding(16.dp)
             )
+
             // コンテンツ
+            when (val state = viewState) {
+                is PokemonListViewState.Initial,
+                is PokemonListViewState.Loading -> {
+                    LoadingContent()
+                }
+
+                is PokemonListViewState.Success -> {
+                    PokemonGrid(
+                        pokemonList = state.pokemonList,
+                        isLoadingMore = state.isLoadingMore,
+                        onPokemonClick = { pokemonId -> presenter.onPokemonClicked(pokemonId) },
+                        onRefresh = { presenter.onRefresh() },
+                        listState = listState
+                    )
+                }
+
+                is PokemonListViewState.Error -> {
+                    ErrorContent(
+                        message = state.message,
+                        onRetry = { presenter.loadPokemonList() }
+                    )
+                }
+            }
         }
     }
 }
