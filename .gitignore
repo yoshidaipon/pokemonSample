@@ -25,3 +25,38 @@ replay_pid*
 
 # Kotlin Gradle plugin data, see https://kotlinlang.org/docs/whatsnew20.html#new-directory-for-kotlin-data-in-gradle-projects
 .kotlin/
+
+# iOS / Xcode
+## Build generated
+ios/**/build/
+ios/**/DerivedData/
+
+## Xcode user-specific files
+ios/**/*.xcuserstate
+ios/**/xcuserdata/
+ios/**/*.xccheckout
+ios/**/*.xcscmblueprint
+
+## Xcode workspaces
+ios/**/*.xcworkspace/*
+!ios/**/*.xcworkspace/contents.xcworkspacedata
+!ios/**/*.xcworkspace/xcshareddata/
+
+## CocoaPods
+ios/**/Pods/
+
+## Carthage
+ios/**/Carthage/Build/
+
+## Swift Package Manager
+ios/**/.build/
+ios/**/.swiftpm/
+
+## fastlane
+ios/**/fastlane/report.xml
+ios/**/fastlane/Preview.html
+ios/**/fastlane/screenshots/**/*.png
+ios/**/fastlane/test_output
+
+## macOS
+.DS_Store
