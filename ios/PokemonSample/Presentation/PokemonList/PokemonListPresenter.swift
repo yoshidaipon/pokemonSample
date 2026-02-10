@@ -79,7 +79,7 @@ class PokemonListPresenter: ObservableObject {
     }
     
     func onPokemonTapped(_ pokemon: Pokemon) {
-        
+        router.navigateToPokemonDetail(pokemonName: pokemon.name)
     }
     
     func onRetryTapped() async {

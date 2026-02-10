@@ -27,4 +27,28 @@ class PokemonRepositoryImpl: PokemonRepository {
             return .failure(APIError.networkError)
         }
     }
+    
+    func getPokemonDetail(id: Int) async -> Result<PokemonDetail> {
+        do {
+            let response = try await apiService.getPokemonDetail(id: id)
+            let detail = response.toDomain()
+            return .success(detail)
+        } catch let error as APIError {
+            return .failure(error)
+        } catch {
+            return .failure(APIError.networkError)
+        }
+    }
+    
+    func getPokemonDetailByName(name: String) async -> Result<PokemonDetail> {
+        do {
+            let response = try await apiService.getPokemonDetailByName(name: name)
+            let detail = response.toDomain()
+            return .success(detail)
+        } catch let error as APIError {
+            return .failure(error)
+        } catch {
+            return .failure(APIError.networkError)
+        }
+    }
 }

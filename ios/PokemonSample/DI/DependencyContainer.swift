@@ -1,4 +1,4 @@
-//
+
 //  DependencyContainer.swift
 //  PokemonSample
 //
@@ -26,11 +26,23 @@ class DependencyContainer {
         GetPokemonListInteractor(repository: pokemonRepository)
     }()
         
+    private lazy var getPokemonDetailInteractor: GetPokemonDetailInteractor = {
+        GetPokemonDetailInteractor(repository: pokemonRepository)
+    }()
+    
     // MARK: - Presenter Factory
     
     func makePokemonListPresenteer(router: AppRouter) -> PokemonListPresenter {
         PokemonListPresenter(
             getPokemonListInteractor: getPokemonListInteractor,
+            router: router
+        )
+    }
+    
+    func makePokemonDetailPresenter(pokemonName: String, router: AppRouter) -> PokemonDetailPresenter {
+        PokemonDetailPresenter(
+            pokemonName: pokemonName,
+            getDetailInteractor: getPokemonDetailInteractor,
             router: router
         )
     }

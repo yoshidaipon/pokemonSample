@@ -18,6 +18,17 @@ struct PokemonSampleApp: App {
                 PokemonListView(
                     presenter: container.makePokemonListPresenteer(router: appRouter)
                 )
+                .navigationDestination(for: NavigationDestination.self) { destination in
+                    switch destination {
+                    case .pokemonDetail(let pokemonName):
+                        PokemonDetailView(
+                            presenter: container.makePokemonDetailPresenter(
+                                pokemonName: pokemonName,
+                                router: appRouter
+                            )
+                        )
+                    }
+                }
             }
         }
     }
